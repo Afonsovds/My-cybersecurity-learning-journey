@@ -1,7 +1,7 @@
 # Nmap Notes
 
-- nmap -p- --min-rate 10000 "IP"                    # Fast full port scan
-- nmap -sC -sV "IP"                                 # Default scripts + versions
+nmap -p- --min-rate 10000 "IP"                    # Fast full port scan
+nmap -sC -sV "IP"                                 # Default scripts + versions
 nmap -A "IP"                                      # Aggressive scan
 nmap -Pn "IP"                                     # Skip host discovery
 nmap -sU "IP"                                     # UDP scan
