@@ -1,5 +1,6 @@
 # Linux Notes
 
+```bash
 sudo -l                                         # Check sudo permissions
 ss -tulpn                                       # Show listening ports/services
 lsof -i                                         # Network-related processes

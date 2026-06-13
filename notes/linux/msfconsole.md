@@ -1,6 +1,6 @@
 # Metasploit (msfconsole)
 
-
+```bash
 search type:exploit name:ms17_010     # Search exploits by name
 search platform:windows               # Filter by operating system
 search cve:2021-44228                # Search by CVE vulnerability

@@ -1,5 +1,6 @@
 # Nmap Notes
 
+```bash
 nmap -p- --min-rate 10000 "IP"                    # Fast full port scan
 nmap -sC -sV "IP"                                 # Default scripts + versions
 nmap -A "IP"                                      # Aggressive scan
