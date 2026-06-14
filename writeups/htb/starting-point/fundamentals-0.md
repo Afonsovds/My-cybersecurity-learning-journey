@@ -1,56 +1,51 @@
-# HTB Starting Point - Service Enumeration (FTP, SMB, Telnet, Redis)
+# HTB Starting Point - Fundamentals 0: Service Enumeration (FTP, SMB, Telnet, Redis)
 
-Objective: Practice basic enumeration and interaction with common services using Nmap and manual tools.
+Objective: Learn how to identify and interact with common network services through enumeration and manual exploration.
 
-First step was running an Nmap scan to identify open ports and services:
+I started by performing an Nmap scan to identify open ports and determine which services were running on the target.
+
 nmap -sC -sV IP
 
-This revealed multiple services:
-FTP (21)
-SMB (445)
-Telnet (23)
-Redis (6379)
+The scan revealed several services, including FTP, SMB, Telnet and Redis. Instead of focusing on exploitation, this module emphasized understanding how these services work and how to interact with them safely.
 
 FTP:
-I tested FTP connection using:
-ftp "IP"
+I connected to the FTP service and tested anonymous authentication.
 
-Then I tried anonymous login:
-username: anonymous
-password: anonymous
+ftp IP
 
-This allowed access to the FTP service and file exploration.
+Using the anonymous account, I explored the available files and directories. This demonstrated how misconfigured file transfer services can unintentionally expose information.
 
 SMB:
-I enumerated SMB shares using:
+I enumerated the available SMB shares using:
+
 smbclient -L //IP -N
 
-I listed available shares and checked for accessible resources.
+I reviewed the accessible shares and learned how file-sharing services can reveal useful information during an assessment.
 
 Telnet:
-I connected using:
+I connected to the Telnet service to understand how remote administration worked before more secure alternatives became standard.
+
 telnet IP
 
-Telnet allowed manual interaction with the service. It is insecure because it sends data in plaintext.
+This highlighted one of Telnet's main weaknesses: all communication is transmitted in plaintext.
 
 Redis:
-I accessed Redis using:
+I accessed the Redis service and explored its basic functionality.
+
 redis-cli -h IP
 
-I explored the database and tested basic commands to understand how the service works.
+This exercise introduced me to in-memory databases and demonstrated the risks of exposing services without proper access controls.
 
 Result:
-By enumerating all services, I identified different attack surfaces:
-- FTP may allow anonymous file access
-- SMB may expose shared folders
-- Telnet is insecure due to plaintext communication
-- Redis may expose internal data if not protected
+Through the enumeration and exploration of multiple services, I gained a better understanding of how different technologies operate and how they may contribute to an attack surface when improperly configured.
 
 What I learned:
-- Always start with full port enumeration (Nmap)
-- Identify and test each service individually
-- Understand how different protocols behave
-- Enumeration is the most important phase in penetration testing
+
+* How to identify services using Nmap.
+* How to interact with FTP, SMB, Telnet and Redis.
+* Why exposed services should be properly secured.
+* The importance of understanding a service before attempting exploitation.
+* That enumeration is one of the most valuable phases of a penetration test.
 
 Conclusion:
-This machine helped me understand how different services can expose vulnerabilities and why proper enumeration is critical before exploitation.
+This module reinforced that effective penetration testing begins with curiosity and observation. Learning how common services behave and how to interact with them provides the foundation needed for more advanced security assessments in the future.
